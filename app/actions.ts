@@ -1,6 +1,6 @@
 "use server";
 
-import { groq } from "@ai-sdk/groq";
+// import { groq } from "@ai-sdk/groq";
 import { openai } from "@ai-sdk/openai";
 import { generateObject } from "ai";
 import { z } from "zod";
@@ -53,7 +53,7 @@ export async function generateTitle(messages: any[]): Promise<string> {
     }
 
     const { object: titleObject } = await generateObject({
-      model: groq('llama-3.1-8b-instant'),
+      model: openai('gpt-4.1-nano'),
       schema: z.object({
         title: z.string().describe("A short, descriptive title for the conversation"),
       }),
